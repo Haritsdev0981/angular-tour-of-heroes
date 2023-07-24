@@ -9,9 +9,14 @@ import { HEROES } from "../mock-heroes";
 })
 export class HeroesComponent {
   heroes = HEROES;
-  selectedHero?: Hero;
-  
-  onSelect(hero: Hero): void{
-    this.selectedHero = hero
+  selectedHero: Hero | null = null;
+  clickCount = 0;
+
+  onSelect(hero: Hero): void {
+    if (this.selectedHero === hero) {
+      this.selectedHero = null;
+    } else {
+      this.selectedHero = hero;
+    }
   }
 }
